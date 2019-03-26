@@ -1,7 +1,15 @@
-Work in progress
+# World Clocks
+
+Web app to create custom board of world clocks using dmfilipenko/timezones.json API created with React, Sass
 
 
-This project is being created with React 
 
+## Work in progress
 
-Goal: Creating customizable table of world clocks, using JGoogle Time Zone API
+To do: 
+- LocalStorage
+- Updating time each second
+- Automatically removing duplicates (both from Cities List and Clock Board)
+- Deleting clocks
+- Graphics
+
