@@ -1,0 +1,9 @@
+.cityCard {
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cityCard:hover {
+  background-color: #5e2d9c;
+}

@@ -1,0 +1,11 @@
+form {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+form input {
+  width: 100%;
+  padding: 7px;
+}
