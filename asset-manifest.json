@@ -1,0 +1,15 @@
+{
+  "main.css": "/World-Clocks/static/css/main.1404f50f.chunk.css",
+  "main.js": "/World-Clocks/static/js/main.65e822a8.chunk.js",
+  "main.js.map": "/World-Clocks/static/js/main.65e822a8.chunk.js.map",
+  "static/js/1.3b0179b9.chunk.js": "/World-Clocks/static/js/1.3b0179b9.chunk.js",
+  "static/js/1.3b0179b9.chunk.js.map": "/World-Clocks/static/js/1.3b0179b9.chunk.js.map",
+  "runtime~main.js": "/World-Clocks/static/js/runtime~main.d1b610f0.js",
+  "runtime~main.js.map": "/World-Clocks/static/js/runtime~main.d1b610f0.js.map",
+  "static/css/main.1404f50f.chunk.css.map": "/World-Clocks/static/css/main.1404f50f.chunk.css.map",
+  "static/media/Clock.css": "/World-Clocks/static/media/clockface.63f2287e.png",
+  "static/media/App.css": "/World-Clocks/static/media/earth.08381d4b.png",
+  "index.html": "/World-Clocks/index.html",
+  "precache-manifest.592166393e3a0218481d00edb9aa902e.js": "/World-Clocks/precache-manifest.592166393e3a0218481d00edb9aa902e.js",
+  "service-worker.js": "/World-Clocks/service-worker.js"
+}
