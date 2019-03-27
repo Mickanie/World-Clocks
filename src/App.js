@@ -10,13 +10,42 @@ class App extends Component {
     customClocks: []
   };
 
+  componentDidMount() {
+    this.setState({
+      customClocks: JSON.parse(localStorage.getItem("customClocks")) || []
+    });
+  }
+
+  componentDidUpdate() {
+    //because setState is asynchronous
+    localStorage.setItem(
+      "customClocks",
+      JSON.stringify(this.state.customClocks)
+    );
+  }
+
   addClock = city => {
     console.log("Here from the app:", city.city, city.time);
     const newClock = {
       city: city.city,
       time: city.time
     };
-    this.setState({ customClocks: [...this.state.customClocks, newClock] });
+    let duplicate = false;
+    this.state.customClocks.forEach(clock => {
+      if (clock.city === newClock.city && clock.time === newClock.time) {
+        duplicate = true;
+        return;
+      }
+    });
+    if (!duplicate) {
+      this.setState({ customClocks: [...this.state.customClocks, newClock] });
+    }
+  };
+
+  removeClock = city => {
+    this.setState({
+      customClocks: this.state.customClocks.filter(clock => clock.city !== city)
+    });
   };
 
   onSearchChange = e => {
@@ -29,12 +58,18 @@ class App extends Component {
       <div className="App">
         <h1>World Clocks</h1>
         <div className="boards">
-          <div className="clock-board" style={clockBoardStyle}>
+          <div className="clock-board board">
             {clocks.map((clock, i) => (
-              <Clock city={clock.city} time={clock.time} key={i} />
+              <Clock
+                city={clock.city}
+                time={clock.time}
+                key={i}
+                index={i}
+                removeClock={this.removeClock}
+              />
             ))}
           </div>
-          <div className="find-city-board" style={findCityStyle}>
+          <div className="find-city-board board">
             <h2>Add new time to the board</h2>
             <Search onSearchChange={this.onSearchChange} />
             <ListOfCities
@@ -47,27 +82,6 @@ class App extends Component {
     );
   }
 }
-const clockBoardStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "space-between",
-  width: "70%",
-  height: "80vh",
-  borderRadius: "25px",
-  background: "#333",
-  alignItems: "center",
-  margin: "20px",
-  padding: "40px"
-};
 
-const findCityStyle = {
-  height: "80vh",
-  borderRadius: "25px",
-  background: "#333",
-  alignItems: "center",
-  margin: "20px",
-  padding: "40px",
-  width: "25%"
-};
 
 export default App;

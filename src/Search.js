@@ -10,7 +10,7 @@ class Search extends Component {
             type="text"
             name="city"
             id="1"
-            placeholder="Type a city"
+            placeholder="Find a city"
             onChange={this.props.onSearchChange}
           />
         </form>

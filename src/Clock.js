@@ -9,17 +9,17 @@ class Clock extends Component {
     minutesDegrees: "",
     secondsDegrees: ""
   };
-  componentDidMount() {
-    const time = this.props.time;
-    setInterval(this.setTime(time), 1000);
+  componentWillMount() {
+    setInterval(this.setTime, 1000);
   }
-  setTime = offset => {
+  setTime = () => {
+    const offset = this.props.time;
     const now = new Date();
     const seconds = now.getSeconds();
     const secondsDegrees = seconds * 6 - 90; //because of the starting position
     const minutes = now.getMinutes();
     const minutesDegrees = minutes * 6 - 90;
-    let hour = now.getHours() - offset - now.getTimezoneOffset() / 60;
+    let hour = now.getHours() + offset + now.getTimezoneOffset() / 60;
     if (hour > 12) {
       hour -= 12;
     }
@@ -30,7 +30,6 @@ class Clock extends Component {
       minutesDegrees,
       secondsDegrees
     });
-    console.log(hour, minutes, seconds);
   };
 
   render() {
@@ -38,18 +37,21 @@ class Clock extends Component {
     const time = this.props.time;
 
     return (
-      <div>
+      <div
+        className="clock-space"
+        onClick={this.props.removeClock.bind(this, city)}
+      >
         <div className="clock">
           <div className="clock-face">
-            <Hand width="35%" height="8px" rotation={this.state.hourDegrees} />
+            <Hand width="50%" height="6px" rotation={this.state.hourDegrees} />
             <Hand
-              width="55%"
-              height="6px"
+              width="70%"
+              height="4px"
               rotation={this.state.minutesDegrees}
             />
             <Hand
-              width="65%"
-              height="4px"
+              width="70%"
+              height="2px"
               rotation={this.state.secondsDegrees}
             />
           </div>

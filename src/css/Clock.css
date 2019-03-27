@@ -1,18 +1,43 @@
-.clock {
+.clock-space {
+  position: relative;
+}
+
+.clock-space:hover .clock {
+  opacity: 0.5;
+}
+
+.clock-space:hover .clock:after {
+  visibility: visible;
+}
+
+.clock-space .clock {
   width: 5rem;
   height: 5rem;
-  border: 20px solid #108077;
+  border: 15px solid #69299c;
   border-radius: 50%;
-  margin: 50px auto;
+  margin: 20px auto;
   position: relative;
   padding: 2rem;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
-  background: url("https://www.helpingwithmath.com/printables/worksheets/time/clockface_numbers01.gif");
+  background: url("../img/clockface.png");
   background-size: cover;
   background-color: white;
 }
 
-.clock-face {
+.clock-space .clock:after {
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  color: white;
+  font-size: 2rem;
+  visibility: hidden;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00d";
+  cursor: pointer;
+}
+
+.clock-space .clock .clock-face {
   position: relative;
   width: 100%;
   height: 100%;
@@ -20,9 +45,14 @@
   /* account for the height of the clock hands */
 }
 
+.clock-space p {
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
 .hand {
-  /*  width: 50%;
-  height: 6px; */
   background: black;
   position: absolute;
   top: 50%;
@@ -32,20 +62,4 @@
   transform: rotate(-90deg);
   transition: all 0.05s;
   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
-}
-
-.min-hand {
-  width: 40%;
-  height: 8px;
-}
-
-.hour-hand {
-  width: 30%;
-  height: 10px;
-}
-
-p {
-  color: #fff;
-  text-align: center;
-  font-size: 1.5rem;
 }

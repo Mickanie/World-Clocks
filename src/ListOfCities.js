@@ -21,15 +21,28 @@ class ListOfCities extends Component {
             const regionName = array[0];
             if (cityName === undefined || cityName.includes("GMT")) return;
 
-            const cityTime = {
+            const newCity = {
               city: cityName,
               region: regionName,
               time: offset
             };
-            citiesArray.push(cityTime);
+            let duplicate = false;
+            citiesArray.forEach(city => {
+              if (
+                city.city === newCity.city &&
+                city.region === newCity.region &&
+                city.time === newCity.time
+              ) {
+                duplicate = true;
+                return;
+              }
+            });
+            if (!duplicate) {
+              citiesArray.push(newCity);
+            }
           });
         });
-
+        console.log(citiesArray);
         this.setState({ citiesTime: citiesArray });
       });
   }
@@ -61,7 +74,7 @@ class ListOfCities extends Component {
 }
 
 const containerStyle = {
-  height: "420px",
+  height: "60vh",
   overflowY: "scroll"
 };
 

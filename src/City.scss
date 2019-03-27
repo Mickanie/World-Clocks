@@ -1,9 +1,11 @@
+@import "_config";
+
 .cityCard {
   border-bottom: 1px solid grey;
   padding: 10px;
   cursor: pointer;
 
   &:hover {
-    background-color: rgb(94, 45, 156);
+    background-color: $secondary-color;
   }
 }
